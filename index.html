@@ -4,7 +4,7 @@
     <title>Reporting Research Study Results with {gtsummary}</title>
     <meta charset="utf-8" />
     <meta name="author" content="Daniel D. Sjoberg" />
-    <meta name="date" content="2021-11-16" />
+    <meta name="date" content="2022-04-27" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <script src="libs/freezeframe/freezeframe.min.js"></script>
     <script src="libs/xaringanExtra-freezeframe/freezeframe-init.js"></script>
@@ -214,7 +214,7 @@ tbl_summary_2 &lt;-  sm_trial %&gt;%
 
 
 
-.medium[
+.small[
 - `by`: specifies a column variable for cross-tabulation
 
 - `type`: specifies the summary type 
@@ -262,9 +262,9 @@ tbl_summary_3a &lt;-
   sm_trial %&gt;%
   tbl_summary(
     by = trt
-    ) %&gt;% 
+  ) %&gt;% 
   add_p() %&gt;% 
-  add_q(method = "bonferroni")  
+  add_q(method = "fdr")
 ```
 
 
@@ -658,9 +658,8 @@ m1_tbl_2 &lt;-
 # Supported models in tbl_regression()
 
 .xlarge[
-`stats::lm()`, `stats::glm()`, `stats::aov()`, `ordinal::clm()`, `ordinal::clmm()`, `survival::coxph()`, `survival::survreg()`, `survival::clogit()`, `lme4::lmer()`, `lme4::glmer()`, `lme4::glmer.nb()`, `brms::brm()`, `geepack::geeglm()`, `gam::gam()`, `mgcv::gam()`, `nnet::multinom()`, `survey::svyglm()`, `survey::svycoxph()`, `survey::svyolr()`, `MASS::polr()`, `MASS::glm.nb()`, `mice::mira`, `lavaan::lavaan()`, `cmprsk::crr()`, `stats::nls()`, `lfe::felm()`, `rstanarm::stan_glm()`, `VGAM::vglm()`, and more!
+`stats::lm()`, `stats::glm()`, `stats::aov()`, `ordinal::clm()`, `ordinal::clmm()`, `survival::coxph()`, `survival::survreg()`, `survival::clogit()`, `lme4::lmer()`, `lme4::glmer()`, `lme4::glmer.nb()`, `brms::brm()`, `geepack::geeglm()`, `gam::gam()`, `glmmTMB::glmmTMB()`, `mgcv::gam()`, `nnet::multinom()`, `survey::svyglm()`, `survey::svycoxph()`, `survey::svyolr()`, `MASS::polr()`, `MASS::glm.nb()`, `mice::mira`, `lavaan::lavaan()`, `stats::nls()`, `lfe::felm()`, `rstanarm::stan_glm()`, `VGAM::vglm()`, `cmprsk::crr()`, `tidycmprsk::crr()`, `plm::plm()`
 ]
-
 
 .large[**Custom tidiers** can be written and passed to `tbl_regression()` using the `tidy_fun=` argument.]
 
@@ -1220,7 +1219,7 @@ tbl$table_styling
 
 ```
 ## $header
-## # A tibble: 12 × 7
+## # A tibble: 12 × 11
 ##    column     hide  align interpret_label label interpret_spann… spanning_header
 ##    &lt;chr&gt;      &lt;lgl&gt; &lt;chr&gt; &lt;chr&gt;           &lt;chr&gt; &lt;chr&gt;            &lt;chr&gt;          
 ##  1 variable   TRUE  cent… gt::md          vari… gt::md           &lt;NA&gt;           
@@ -1235,6 +1234,8 @@ tbl$table_styling
 ## 10 statistic  TRUE  cent… gt::md          stat… gt::md           &lt;NA&gt;           
 ## 11 p.value    FALSE cent… gt::md          **p-… gt::md           &lt;NA&gt;           
 ## 12 alternati… TRUE  cent… gt::md          alte… gt::md           &lt;NA&gt;           
+## # … with 4 more variables: modify_stat_N &lt;int&gt;, modify_stat_n &lt;int&gt;,
+## #   modify_stat_p &lt;dbl&gt;, modify_stat_level &lt;chr&gt;
 ## 
 ## $footnote
 ## # A tibble: 3 × 4

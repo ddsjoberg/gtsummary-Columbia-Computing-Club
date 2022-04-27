@@ -91,9 +91,8 @@ my_gtsave("m1_tbl_2")
 # Supported models in tbl_regression()
 
 .xlarge[
-`stats::lm()`, `stats::glm()`, `stats::aov()`, `ordinal::clm()`, `ordinal::clmm()`, `survival::coxph()`, `survival::survreg()`, `survival::clogit()`, `lme4::lmer()`, `lme4::glmer()`, `lme4::glmer.nb()`, `brms::brm()`, `geepack::geeglm()`, `gam::gam()`, `mgcv::gam()`, `nnet::multinom()`, `survey::svyglm()`, `survey::svycoxph()`, `survey::svyolr()`, `MASS::polr()`, `MASS::glm.nb()`, `mice::mira`, `lavaan::lavaan()`, `cmprsk::crr()`, `stats::nls()`, `lfe::felm()`, `rstanarm::stan_glm()`, `VGAM::vglm()`, and more!
+`r broom.helpers::supported_models$model`
 ]
-
 
 .large[**Custom tidiers** can be written and passed to `tbl_regression()` using the `tidy_fun=` argument.]
 

@@ -59,7 +59,7 @@ tbl_summary_2 <-  sm_trial %>%
 my_gtsave("tbl_summary_2")
 ```
 
-.medium[
+.small[
 - `by`: specifies a column variable for cross-tabulation
 
 - `type`: specifies the summary type 
@@ -106,9 +106,9 @@ tbl_summary_3a <-
   sm_trial %>%
   tbl_summary(
     by = trt
-    ) %>% 
+  ) %>% 
   add_p() %>% 
-  add_q(method = "bonferroni")  
+  add_q(method = "fdr")
 ```
 
 ```{r include = FALSE}
